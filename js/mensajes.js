@@ -1,49 +1,42 @@
 /* ============================================================
-   MENSAJES
-   Todo lo que el juego le dice a Cecy está aquí.
-   Cámbialos por cosas que le dirías tú; eso es lo que hace que
-   se sienta hecho a mano.
+   TODO LO QUE LA APP LE DICE A CECY
+   Este archivo y preguntas.js son los únicos que hace falta
+   editar. Escribe con tus palabras: eso es lo que hace que se
+   note que no lo sacaste de internet.
    ============================================================ */
 
 window.MENSAJES = {
 
-  /* Saludos que rotan en la pantalla de inicio */
+  /* Saludos que van rotando en la portada */
   bienvenida: [
     "Alguien pensó en ti hoy.",
     "Esto lo hice para que te distraigas un rato.",
     "Sin apuro, sin reloj. Solo juega.",
-    "Ocho preguntas y un par de risas.",
-    "Bienvenida, Cecy."
+    "Hay algo nuevo esperándote aquí adentro.",
+    "Bienvenida de vuelta."
   ],
 
   /* Cuando acierta */
   acierto: [
-    "Esa era.",
-    "Obvio que sí.",
-    "Cecy sabe.",
-    "Impecable.",
-    "Te la sabías.",
-    "Ni dudaste."
+    "Esa era.", "Obvio que sí.", "Cecy sabe.",
+    "Impecable.", "Te la sabías.", "Ni dudaste."
   ],
 
   /* Cuando falla: suave, sin drama */
   fallo: [
-    "Casi.",
-    "Esa estaba difícil.",
-    "Nada grave, sigue.",
-    "Ahora ya la sabes.",
-    "Por poquito."
+    "Casi.", "Esa estaba difícil.", "Nada grave, sigue.",
+    "Ahora ya la sabes.", "Por poquito."
   ],
 
-  /* Cierre según cuántas acertó (de 8) */
+  /* Cierre de ronda según cuántas acertó (de 8) */
   final: [
     { min: 8, titulo: "Perfecto", texto: "Ocho de ocho. Voy a tener que hacer preguntas más difíciles." },
     { min: 6, titulo: "Muy bien", texto: "Se te da esto. Y todavía quedan categorías por jugar." },
-    { min: 4, titulo: "Buen ronda", texto: "Mitad y mitad, que es justo lo divertido. Una más y mejoras." },
-    { min: 0, titulo: "Lo importante es el chisme", texto: "Los datos curiosos igual quedan. Ahora ya tienes con qué sorprender a alguien." }
+    { min: 4, titulo: "Buena ronda", texto: "Mitad y mitad, que es justo lo divertido. Una más y mejoras." },
+    { min: 0, titulo: "Lo importante es el chisme", texto: "Los datos curiosos igual quedan. Ahora tienes con qué sorprender a alguien." }
   ],
 
-  /* El botón del corazón. Estos son los que de verdad importan. */
+  /* El botón del corazón */
   animo: [
     "No tienes que estar bien para ser querida.",
     "Los días grises también se acaban.",
@@ -65,5 +58,106 @@ window.MENSAJES = {
     "Gracias por ser mi amiga. Va en serio.",
     "Eres más querida de lo que te imaginas.",
     "Aquí estoy, aunque no diga nada."
-  ]
+  ],
+
+  /* Lo que dice la voz del celular cuando ella aprieta el botón de audio.
+     Usa {nombre} y lo reemplaza solo. */
+  voz: [
+    "Bien hecho, {nombre}.",
+    "Qué orgullo, {nombre}.",
+    "Esa te salió redonda, {nombre}.",
+    "{nombre}, eres una crack.",
+    "Un aplauso para {nombre}."
+  ],
+
+  /* ============================================================
+     CALENDARIO DE 7 DÍAS
+     Se abre uno por día. El primero el día que ella entre.
+     ============================================================ */
+  sieteDias: [
+    {
+      titulo: "Día uno",
+      texto: "Hice esto porque no se me ocurrió otra forma de estar ahí desde lejos. Ábrelo cuando quieras, todos los días hay uno nuevo. No tienes que responder nada."
+    },
+    {
+      titulo: "Algo que quiero que sepas",
+      texto: "Estar mal no te hace una carga. Yo no te quiero por lo bien que la pases; te quiero por cómo eres cuando nadie está mirando."
+    },
+    {
+      titulo: "Una idea para hoy",
+      texto: "Sal cinco minutos, aunque sea a la puerta. Sin celular, sin audífonos. No arregla nada, pero el cuerpo lo agradece y a veces con eso basta para destrabar el día."
+    },
+    {
+      titulo: "Un recuerdo",
+      texto: "Cámbialo por uno de ustedes: ese día en que se rieron hasta que les dolió el estómago, y lo que estaban haciendo cuando pasó."
+    },
+    {
+      titulo: "Mitad de semana",
+      texto: "Si llegaste hasta acá, ya pasaron cuatro días. No sé cómo estuvieron, pero pasaron, y eso ya es algo."
+    },
+    {
+      titulo: "Lo que veo desde acá",
+      texto: "Te subestimas todo el tiempo. La Cecy que tú describes y la que ven los demás no son la misma persona, y la de los demás es bastante mejor."
+    },
+    {
+      titulo: "Día siete",
+      texto: "Se acabaron los días, pero no la app. El corazón de arriba sigue funcionando, las trivias también, y yo sigo en el mismo número de siempre."
+    }
+  ],
+
+  /* ============================================================
+     CARTAS PARA ABRIR DESPUÉS
+     La etiqueta es lo que se ve por fuera del sobre.
+     ============================================================ */
+  cartas: [
+    {
+      etiqueta: "cuando no puedas dormir",
+      emoji: "🌙",
+      texto: "Si son las tres de la mañana y la cabeza no para: no le hagas caso a nada de lo que te diga a esta hora. A las tres de la mañana todo el mundo es un desastre y todos los problemas son enormes. Mañana, con luz, van a medir la mitad. Tómate agua, pon algo aburrido de fondo y deja que el cuerpo haga lo suyo."
+    },
+    {
+      etiqueta: "cuando estés harta de todo",
+      emoji: "🌊",
+      texto: "Tienes permiso de no poder más. En serio. No tienes que ser fuerte, ni positiva, ni agradecida hoy. Cancela lo que se pueda cancelar, deja lo demás mal hecho por un día y avísame si quieres que te ayude a decir que no."
+    },
+    {
+      etiqueta: "cuando extrañes a alguien",
+      emoji: "🕯️",
+      texto: "Extrañar es la parte cara de haber querido bien. No trates de apurarlo. Escríbele aunque no lo mandes, mira las fotos si quieres, llora si tienes ganas. Yo te contesto a la hora que sea."
+    },
+    {
+      etiqueta: "cuando te sientas sola",
+      emoji: "🧣",
+      texto: "Estar sola en un cuarto no es lo mismo que no tener a nadie. Haz la prueba: escríbele a la primera persona que se te venga a la cabeza, cualquier tontería. Casi siempre del otro lado también estaban esperando que alguien escribiera primero."
+    },
+    {
+      etiqueta: "cuando algo te salga bien",
+      emoji: "🎉",
+      texto: "Esta ábrela solo cuando te pase algo bueno, chico o grande. Quiero que la leas para acordarte de contármelo. Y para que la próxima vez que te digas que nunca te sale nada, te acuerdes de que esta carta ya la abriste."
+    },
+    {
+      etiqueta: "cuando dudes de ti",
+      emoji: "🪞",
+      texto: "Te lo digo sin adornos: eres buena en lo que haces y eres mucho mejor persona de lo que crees. La voz que te dice lo contrario no es tu criterio, es el cansancio hablando con tu voz."
+    }
+  ],
+
+  /* ============================================================
+     RULETA DE PLANES
+     Exactamente 8, que son los gajos de la ruleta.
+     "corto" va en la ruleta, "texto" es lo que se manda.
+     ============================================================ */
+  planes: [
+    { corto: "Helado",     texto: "Ir por un helado, aunque haga frío." },
+    { corto: "Caminar",    texto: "Caminar sin rumbo una hora, sin mapa y sin apuro." },
+    { corto: "Peli mala",  texto: "Ver la peor película que encontremos, a propósito." },
+    { corto: "Cocinar",    texto: "Cocinar algo que ninguno de los dos sepa hacer." },
+    { corto: "Café",       texto: "Café en ese sitio al que siempre decimos que vamos a ir." },
+    { corto: "Fotos",      texto: "Salir a tomar fotos de puras cosas feas." },
+    { corto: "Karaoke",    texto: "Cantar mal, fuerte y sin vergüenza." },
+    { corto: "Mercado",    texto: "Perdernos en un mercado y comprar algo que no necesitamos." }
+  ],
+
+  /* Encabezado del mensaje que se manda por WhatsApp */
+  invitacion: "La ruleta decidió por nosotros:"
 };

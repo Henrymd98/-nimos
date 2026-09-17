@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Trivia de Cecy</title>
-<meta name="description" content="Una trivia hecha a mano para Cecy. 48 preguntas, cero apuro.">
+<title>Para Cecy</title>
+<meta name="description" content="Trivias, cartas y mensajes. Hecho a mano para Cecy.">
 <meta name="theme-color" content="#FFF7F2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#17102A" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,22 +29,43 @@
 
 <main class="marco">
 
-  <!-- ===== inicio ===== -->
+  <!-- ============ portada / menú ============ -->
   <section id="pantalla-inicio" class="pantalla inicio activa">
-    <div class="corona" aria-hidden="true">🌻</div>
+    <div class="corona" id="corona" aria-hidden="true">🌻</div>
     <div>
-      <p class="bajada">La trivia de</p>
-      <h1 class="nombre">Cecy</h1>
+      <p class="bajada">Hecho para</p>
+      <h1 class="nombre" data-nombre>Cecy</h1>
     </div>
     <p class="saludo" id="saludo"></p>
-    <div class="fila-botones">
-      <button class="boton" id="btn-jugar">Empezar</button>
-      <button class="boton suave" id="btn-animo-inicio">Leerme algo bonito</button>
-    </div>
+
+    <nav class="menu" id="menu">
+      <button class="tarjeta-cat" data-abre="categorias" style="--tono:#A88BEB; --tono-suave:rgba(168,139,235,.16)">
+        <span class="emoji-cat" aria-hidden="true">🎯</span>
+        <span class="texto-cat"><strong>Trivia</strong><span>Seis categorías, ocho preguntas por ronda</span></span>
+      </button>
+      <button class="tarjeta-cat" data-abre="duo" style="--tono:#FF7E8B; --tono-suave:rgba(255,126,139,.16)">
+        <span class="emoji-cat" aria-hidden="true">👯</span>
+        <span class="texto-cat"><strong>Dos jugadores</strong><span>Se pasan el celular por turnos</span></span>
+      </button>
+      <button class="tarjeta-cat" data-abre="calendario" style="--tono:#4FC9AE; --tono-suave:rgba(79,201,174,.16)">
+        <span class="emoji-cat" aria-hidden="true">📅</span>
+        <span class="texto-cat"><strong>Siete días</strong><span>Un mensaje nuevo cada día</span></span>
+        <span class="aviso" id="aviso-calendario" hidden>nuevo</span>
+      </button>
+      <button class="tarjeta-cat" data-abre="cartas" style="--tono:#FFA45C; --tono-suave:rgba(255,164,92,.16)">
+        <span class="emoji-cat" aria-hidden="true">💌</span>
+        <span class="texto-cat"><strong>Cartas</strong><span>Ábrelas cuando las necesites</span></span>
+      </button>
+      <button class="tarjeta-cat" data-abre="ruleta" style="--tono:#5EB8F0; --tono-suave:rgba(94,184,240,.16)">
+        <span class="emoji-cat" aria-hidden="true">🎲</span>
+        <span class="texto-cat"><strong>Ruleta de planes</strong><span>Que decida ella qué hacemos</span></span>
+      </button>
+    </nav>
+
     <p class="pie">Hecho a mano, con cariño 💛</p>
   </section>
 
-  <!-- ===== categorías ===== -->
+  <!-- ============ categorías de trivia ============ -->
   <section id="pantalla-categorias" class="pantalla">
     <div class="barra-sup">
       <h2 class="titulo-seccion crece">¿Con qué jugamos?</h2>
@@ -54,7 +75,7 @@
     <p class="pie">8 preguntas al azar por ronda. Sin cronómetro, sin presión.</p>
   </section>
 
-  <!-- ===== juego ===== -->
+  <!-- ============ ronda de una persona ============ -->
   <section id="pantalla-juego" class="pantalla">
     <div class="barra-sup">
       <span class="titulo-seccion crece" id="nombre-cat"></span>
@@ -66,6 +87,7 @@
       <span id="contador">Pregunta 1 de 8</span>
       <span class="racha" id="racha"></span>
     </div>
+    <img class="foto-pregunta" id="foto-pregunta" alt="" hidden>
     <h3 class="pregunta" id="pregunta"></h3>
     <div class="opciones" id="opciones"></div>
     <div class="reaccion" id="reaccion" hidden aria-live="polite">
@@ -75,7 +97,7 @@
     </div>
   </section>
 
-  <!-- ===== final ===== -->
+  <!-- ============ resultado de una persona ============ -->
   <section id="pantalla-final" class="pantalla final">
     <div class="medidor" id="medidor">
       <div>
@@ -85,10 +107,116 @@
     </div>
     <h2 class="titulo-final" id="final-titulo"></h2>
     <p class="texto-final" id="final-texto"></p>
+    <button class="boton-voz" id="btn-voz-final">🔊 Dímelo en voz alta</button>
     <div class="nota" id="final-nota"></div>
     <div class="fila-botones">
       <button class="boton" id="btn-otra">Jugar otra ronda</button>
       <button class="boton suave" data-ir="categorias">Cambiar categoría</button>
+    </div>
+  </section>
+
+  <!-- ============ dos jugadores: preparación ============ -->
+  <section id="pantalla-duo" class="pantalla">
+    <div class="barra-sup">
+      <h2 class="titulo-seccion crece">Dos jugadores</h2>
+      <button class="volver" data-ir="inicio">Atrás</button>
+    </div>
+    <p class="explica">Un celular, dos personas. Se turnan de pregunta en pregunta y al final hay marcador.</p>
+    <div class="campos">
+      <label class="campo">
+        <span>Jugadora 1</span>
+        <input id="duo-nombre1" type="text" maxlength="12" autocomplete="off" value="Cecy">
+      </label>
+      <label class="campo">
+        <span>Jugador 2</span>
+        <input id="duo-nombre2" type="text" maxlength="12" autocomplete="off" value="Yo">
+      </label>
+    </div>
+    <h3 class="subtitulo">¿De qué juegan?</h3>
+    <div class="lista-categorias" id="duo-categorias"></div>
+  </section>
+
+  <!-- ============ dos jugadores: pásame el celular ============ -->
+  <section id="pantalla-duo-turno" class="pantalla turno">
+    <div class="sello-turno" id="duo-turno-emoji" aria-hidden="true">👋</div>
+    <h2 class="titulo-final" id="duo-turno-nombre"></h2>
+    <p class="texto-final" id="duo-turno-texto">Te toca. Pásale el celular.</p>
+    <div class="marcador" id="duo-turno-marcador"></div>
+    <button class="boton" id="duo-turno-listo">Estoy lista</button>
+  </section>
+
+  <!-- ============ dos jugadores: pregunta ============ -->
+  <section id="pantalla-duo-juego" class="pantalla">
+    <div class="barra-sup">
+      <span class="titulo-seccion crece" id="duo-quien"></span>
+      <button class="volver" data-ir="inicio">Salir</button>
+    </div>
+    <div class="progreso"><i id="duo-barra"></i></div>
+    <div class="meta-juego">
+      <span id="duo-contador"></span>
+      <span class="racha" id="duo-marcador"></span>
+    </div>
+    <img class="foto-pregunta" id="duo-foto" alt="" hidden>
+    <h3 class="pregunta" id="duo-pregunta"></h3>
+    <div class="opciones" id="duo-opciones"></div>
+    <div class="reaccion" id="duo-reaccion" hidden aria-live="polite">
+      <b id="duo-reaccion-titulo"></b>
+      <p id="duo-reaccion-dato"></p>
+      <button class="boton" id="duo-siguiente">Siguiente</button>
+    </div>
+  </section>
+
+  <!-- ============ dos jugadores: resultado ============ -->
+  <section id="pantalla-duo-final" class="pantalla final">
+    <div class="sello-turno" aria-hidden="true">🏆</div>
+    <h2 class="titulo-final" id="duo-final-titulo"></h2>
+    <div class="marcador grande" id="duo-final-marcador"></div>
+    <p class="texto-final" id="duo-final-texto"></p>
+    <div class="fila-botones">
+      <button class="boton" id="duo-revancha">Revancha</button>
+      <button class="boton suave" data-ir="inicio">Volver al inicio</button>
+    </div>
+  </section>
+
+  <!-- ============ calendario de 7 días ============ -->
+  <section id="pantalla-calendario" class="pantalla">
+    <div class="barra-sup">
+      <h2 class="titulo-seccion crece">Siete días</h2>
+      <button class="volver" data-ir="inicio">Atrás</button>
+    </div>
+    <p class="explica" id="calendario-explica"></p>
+    <div class="dias" id="dias"></div>
+    <p class="pie">Se abre uno por día. Sin apuro: los que ya abriste se quedan.</p>
+  </section>
+
+  <!-- ============ cartas ============ -->
+  <section id="pantalla-cartas" class="pantalla">
+    <div class="barra-sup">
+      <h2 class="titulo-seccion crece">Cartas</h2>
+      <button class="volver" data-ir="inicio">Atrás</button>
+    </div>
+    <p class="explica">Cada sobre dice cuándo abrirlo. No hay apuro, y se pueden releer todas las veces que quieras.</p>
+    <div class="sobres" id="sobres"></div>
+  </section>
+
+  <!-- ============ ruleta ============ -->
+  <section id="pantalla-ruleta" class="pantalla ruleta">
+    <div class="barra-sup">
+      <h2 class="titulo-seccion crece">Ruleta de planes</h2>
+      <button class="volver" data-ir="inicio">Atrás</button>
+    </div>
+    <p class="explica">Cuando ninguno de los dos sabe qué hacer, que decida la ruleta.</p>
+    <div class="caja-ruleta">
+      <div class="aguja" aria-hidden="true"></div>
+      <canvas id="ruleta" width="300" height="300" role="img" aria-label="Ruleta de planes"></canvas>
+    </div>
+    <button class="boton" id="btn-girar">Girar</button>
+    <div class="nota resultado-plan" id="resultado-plan" hidden>
+      <b id="plan-texto"></b>
+      <div class="fila-botones">
+        <button class="boton" id="btn-mandar">Mandárselo por WhatsApp</button>
+        <button class="boton suave" id="btn-girar-otra">Girar otra vez</button>
+      </div>
     </div>
   </section>
 
@@ -97,20 +225,42 @@
 <!-- botón flotante de ánimo -->
 <button class="corazon" id="btn-corazon" aria-label="Mensaje de ánimo">💛</button>
 
+<!-- modal de ánimo -->
 <div class="telon" id="telon" hidden>
   <div class="papel" role="dialog" aria-modal="true" aria-labelledby="mensaje-animo">
     <div class="sello" aria-hidden="true">✨</div>
     <p id="mensaje-animo"></p>
-    <div class="fila-botones">
+    <button class="boton-voz" id="btn-voz-animo">🔊 Léemelo</button>
+    <div class="fila-botones dos">
       <button class="boton suave" id="btn-otro-animo">Otro</button>
       <button class="boton" id="btn-cerrar-animo">Cerrar</button>
     </div>
   </div>
 </div>
 
-<script src="js/preguntas.js"></script>
+<!-- modal de lectura: cartas y días -->
+<div class="telon" id="telon-carta" hidden>
+  <div class="papel carta" role="dialog" aria-modal="true" aria-labelledby="carta-titulo">
+    <div class="sello" id="carta-emoji" aria-hidden="true">💌</div>
+    <h3 id="carta-titulo"></h3>
+    <p class="cuerpo-carta" id="carta-texto"></p>
+    <p class="firma" id="carta-firma"></p>
+    <button class="boton-voz" id="btn-voz-carta">🔊 Léemela</button>
+    <button class="boton" id="btn-cerrar-carta">Cerrar</button>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
 <script src="js/mensajes.js"></script>
+<script src="js/preguntas.js"></script>
+<script src="js/comunes.js"></script>
 <script src="js/confeti.js"></script>
+<script src="js/voz.js"></script>
+<script src="js/trivia.js"></script>
+<script src="js/duo.js"></script>
+<script src="js/calendario.js"></script>
+<script src="js/cartas.js"></script>
+<script src="js/ruleta.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

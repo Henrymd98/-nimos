@@ -1,13 +1,18 @@
 {
-  "name": "Trivia de Cecy",
+  "name": "Para Cecy",
   "short_name": "Cecy",
-  "description": "Una trivia hecha a mano para Cecy.",
+  "description": "Trivias, cartas y mensajes. Hecho a mano para Cecy.",
   "start_url": ".",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FFF7F2",
   "theme_color": "#FFF7F2",
   "icons": [
-    { "src": "icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    {
+      "src": "icono.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
   ]
 }

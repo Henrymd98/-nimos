@@ -1,26 +1,45 @@
-# Trivia de Cecy 🌻
+# Para Cecy 🌻
 
-Una trivia para jugar desde el celular, sin instalar nada y sin cronómetro.
-Son 48 preguntas repartidas en cinco categorías, más un botón de corazón que
-suelta un mensaje de ánimo cuando lo aprietas.
+Una app web para el celular, hecha a mano. Se abre desde un link, no se
+instala nada y funciona sin cuenta ni contraseña.
 
-## Cómo se juega
+Tiene cinco cosas adentro:
 
-Se abre el link, se elige una categoría y salen 8 preguntas al azar. Después de
-cada respuesta aparece un dato curioso, así que igual se aprende algo aunque
-falle. Al terminar muestra el puntaje y guarda el mejor de cada categoría en el
-mismo celular.
+| | |
+|---|---|
+| 🎯 **Trivia** | 54 preguntas en seis categorías. Ocho al azar por ronda, sin cronómetro. |
+| 👯 **Dos jugadores** | Un celular, dos personas, turnos alternados y marcador al final. |
+| 📅 **Siete días** | Un mensaje nuevo cada día, que se desbloquea solo. |
+| 💌 **Cartas** | Sobres con etiqueta: "ábreme cuando no puedas dormir", "cuando estés harta de todo". |
+| 🎲 **Ruleta de planes** | Gira y sale un plan, con botón para mandárselo por WhatsApp. |
 
-No tiene reloj a propósito: la idea es que distraiga, no que estrese.
+Y un botón de corazón que flota en la pantalla: donde sea que esté, lo aprieta
+y sale un mensaje de ánimo. Casi todos los textos se pueden escuchar en voz
+alta, con la voz del propio teléfono.
 
-## Personalizarla (la parte importante)
+## Personalizarla
 
-Todo el contenido está en dos archivos y se edita con cualquier editor de texto.
+Son tres archivos, todos con comentarios en español. No hace falta saber
+programar: es cambiar texto entre comillas.
+
+### `js/config.js` — empieza por acá
+
+Cuatro líneas: el nombre, el emoji de la portada, tu número de WhatsApp y cómo
+firmas las cartas. Si dejas el WhatsApp vacío, el botón de la ruleta copia el
+plan al portapapeles en vez de abrir el chat.
+
+### `js/mensajes.js` — lo que le dice
+
+Todo lo que la app le habla: los saludos de la portada, las reacciones al
+acertar o fallar, los 20 mensajes del corazón, los siete días, las seis cartas
+y los ocho planes de la ruleta.
+
+Vale la pena reescribir estos con tus propias palabras. Los que vienen sirven
+para que veas el tono, pero los que importan son los tuyos.
 
 ### `js/preguntas.js` — las preguntas
 
-La categoría **Cosas de Cecy** viene con ejemplos de relleno; esas son las que
-hay que cambiar. Cada pregunta se escribe así:
+Cada una se escribe así:
 
 ```js
 {
@@ -31,63 +50,72 @@ hay que cambiar. Cada pregunta se escribe así:
 }
 ```
 
-El único detalle que suele confundir: `r` se cuenta desde 0. Si la respuesta
-correcta es la tercera opción, va `r: 2`.
+El detalle que suele confundir: `r` se cuenta desde 0. Si la respuesta correcta
+es la tercera opción, va `r: 2`.
 
-Se pueden agregar todas las preguntas que quieras; el juego arma cada ronda con
-8 al azar, así que mientras más haya, menos se repiten.
+La categoría **Cosas de Cecy** viene con ejemplos de relleno; esos son los
+primeros que hay que cambiar.
 
-### `js/mensajes.js` — lo que le dice
+### Fotos
 
-Ahí están los saludos de la portada, las reacciones al acertar o fallar, los
-cierres según el puntaje y los 20 mensajes del botón de corazón. Esos mensajes
-son los que conviene reescribir con tus propias palabras.
+La categoría **¿Dónde estábamos?** muestra una imagen arriba de cada pregunta.
+Copia tus fotos en la carpeta `fotos/` y apunta a ellas:
 
-## Publicarla en internet
+```js
+foto: "fotos/playa2023.jpg"
+```
+
+Si el archivo no existe todavía, la app no muestra nada y la pregunta funciona
+igual. Hay más detalle en `fotos/LEEME.md`.
+
+## Publicarla
 
 Con GitHub Pages queda un link que se abre desde cualquier celular:
 
-1. En el repositorio, **Settings → Pages**.
-2. En *Source* elegir **Deploy from a branch**.
-3. Branch: `main`, carpeta `/ (root)`. Guardar.
-4. En un par de minutos queda en `https://<usuario>.github.io/<repositorio>/`.
+1. En el repositorio: **Settings → Pages**.
+2. *Source*: **Deploy from a branch**.
+3. Branch `main`, carpeta `/ (root)`. Guardar.
+4. En dos minutos está en `https://<usuario>.github.io/<repositorio>/`.
 
 Ese link se manda por WhatsApp y listo. Si además lo agrega a la pantalla de
-inicio ("Agregar a inicio" en el menú del navegador), se abre como una app, sin
-barra de direcciones.
+inicio del teléfono, se abre como una app, sin barra de direcciones.
 
 ## Probarla en la compu
 
-No necesita instalar nada, pero conviene abrirla con un servidor local para que
-el navegador no bloquee nada:
-
 ```bash
 python3 -m http.server 8000
-# y abrir http://localhost:8000
+# abrir http://localhost:8000
 ```
-
-Abrir el `index.html` directamente también funciona.
 
 ## Qué hay dentro
 
 ```
-index.html          la estructura de las cuatro pantallas
+index.html          las pantallas
 css/estilos.css     colores, animaciones, modo oscuro
-js/preguntas.js     el contenido del juego  ← editar acá
-js/mensajes.js      los mensajes para Cecy  ← y acá
-js/app.js           la lógica de las rondas
-js/confeti.js       el confeti, hecho a mano para no cargar librerías
-manifest.json       para que se pueda instalar en el celular
+js/config.js        nombre, WhatsApp, firma        ← editar
+js/mensajes.js      todo lo que le dice            ← editar
+js/preguntas.js     las preguntas                  ← editar
+js/comunes.js       herramientas compartidas
+js/trivia.js        la ronda de una persona
+js/duo.js           el modo de dos jugadores
+js/calendario.js    los siete días
+js/cartas.js        los sobres
+js/ruleta.js        la ruleta de planes
+js/voz.js           leer en voz alta
+js/confeti.js       el confeti
+js/app.js           navegación y ventanas
+fotos/              las fotos de la categoría de recuerdos
 ```
 
-Sin dependencias, sin build, sin npm. Tres archivos de JavaScript que el
-navegador lee tal como están, para que abra rápido incluso con mala señal.
+Sin dependencias, sin build, sin npm. El navegador lee los archivos tal como
+están, para que abra rápido incluso con mala señal.
 
 ## Detalles pensados para el celular
 
 - Modo oscuro automático, según cómo tenga configurado el teléfono.
 - Botones grandes, de los que se aciertan con el pulgar.
-- Vibración corta al responder, y un sonidito que se puede silenciar con la
-  campanita.
+- Vibración corta al responder y un sonidito que se silencia con la campanita.
 - Si el teléfono tiene activado "reducir movimiento", se apagan las animaciones
-  y el confeti.
+  y el confeti, y la ruleta entrega el resultado sin girar.
+- Lo que va guardando (récords, días leídos, cartas abiertas) vive en el mismo
+  celular. Nada se manda a ningún servidor, porque no hay servidor.
