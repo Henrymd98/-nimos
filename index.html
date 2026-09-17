@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trivia de Cecy</title>
+<meta name="description" content="Una trivia hecha a mano para Cecy. 48 preguntas, cero apuro.">
+<meta name="theme-color" content="#FFF7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17102A" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Cecy">
+<link rel="icon" href="icono.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icono.svg">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="fondo" aria-hidden="true">
+  <div class="mancha"></div>
+  <div class="mancha"></div>
+  <div class="mancha"></div>
+</div>
+
+<canvas id="confeti" aria-hidden="true"></canvas>
+
+<main class="marco">
+
+  <!-- ===== inicio ===== -->
+  <section id="pantalla-inicio" class="pantalla inicio activa">
+    <div class="corona" aria-hidden="true">🌻</div>
+    <div>
+      <p class="bajada">La trivia de</p>
+      <h1 class="nombre">Cecy</h1>
+    </div>
+    <p class="saludo" id="saludo"></p>
+    <div class="fila-botones">
+      <button class="boton" id="btn-jugar">Empezar</button>
+      <button class="boton suave" id="btn-animo-inicio">Leerme algo bonito</button>
+    </div>
+    <p class="pie">Hecho a mano, con cariño 💛</p>
+  </section>
+
+  <!-- ===== categorías ===== -->
+  <section id="pantalla-categorias" class="pantalla">
+    <div class="barra-sup">
+      <h2 class="titulo-seccion crece">¿Con qué jugamos?</h2>
+      <button class="volver" data-ir="inicio">Atrás</button>
+    </div>
+    <div class="lista-categorias" id="lista-categorias"></div>
+    <p class="pie">8 preguntas al azar por ronda. Sin cronómetro, sin presión.</p>
+  </section>
+
+  <!-- ===== juego ===== -->
+  <section id="pantalla-juego" class="pantalla">
+    <div class="barra-sup">
+      <span class="titulo-seccion crece" id="nombre-cat"></span>
+      <button class="volver" id="btn-sonido" aria-label="Activar o silenciar el sonido">🔔</button>
+      <button class="volver" data-ir="categorias">Salir</button>
+    </div>
+    <div class="progreso"><i id="barra"></i></div>
+    <div class="meta-juego">
+      <span id="contador">Pregunta 1 de 8</span>
+      <span class="racha" id="racha"></span>
+    </div>
+    <h3 class="pregunta" id="pregunta"></h3>
+    <div class="opciones" id="opciones"></div>
+    <div class="reaccion" id="reaccion" hidden aria-live="polite">
+      <b id="reaccion-titulo"></b>
+      <p id="reaccion-dato"></p>
+      <button class="boton" id="btn-siguiente">Siguiente</button>
+    </div>
+  </section>
+
+  <!-- ===== final ===== -->
+  <section id="pantalla-final" class="pantalla final">
+    <div class="medidor" id="medidor">
+      <div>
+        <div class="puntaje"><span id="final-aciertos">0</span><small>/8</small></div>
+        <span class="etiqueta">aciertos</span>
+      </div>
+    </div>
+    <h2 class="titulo-final" id="final-titulo"></h2>
+    <p class="texto-final" id="final-texto"></p>
+    <div class="nota" id="final-nota"></div>
+    <div class="fila-botones">
+      <button class="boton" id="btn-otra">Jugar otra ronda</button>
+      <button class="boton suave" data-ir="categorias">Cambiar categoría</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- botón flotante de ánimo -->
+<button class="corazon" id="btn-corazon" aria-label="Mensaje de ánimo">💛</button>
+
+<div class="telon" id="telon" hidden>
+  <div class="papel" role="dialog" aria-modal="true" aria-labelledby="mensaje-animo">
+    <div class="sello" aria-hidden="true">✨</div>
+    <p id="mensaje-animo"></p>
+    <div class="fila-botones">
+      <button class="boton suave" id="btn-otro-animo">Otro</button>
+      <button class="boton" id="btn-cerrar-animo">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/preguntas.js"></script>
+<script src="js/mensajes.js"></script>
+<script src="js/confeti.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
