@@ -15,10 +15,10 @@ window.CONFIG = {
   // Perú sería algo como "51987654321".
   // Si lo dejas vacío, el botón de la ruleta copia el plan al portapapeles
   // en vez de abrir el chat.
-  whatsapp: "",
+  whatsapp: "51931473396",
 
   // Cómo firmas las cartas.
-  firma: "Tu amigo",
+  firma: "Henry MD",
 
   // Día en que arranca el calendario de 7 días:
   //   "primera-visita"  → el día 1 se abre cuando ella entre por primera vez
