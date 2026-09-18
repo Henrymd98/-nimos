@@ -55,7 +55,7 @@ window.MENSAJES = {
     "No tienes que resolverlo todo hoy.",
     "Lo que sientes tiene sentido, no lo discutas contigo misma.",
     "Mañana no tiene que ser mejor. Solo tiene que llegar.",
-    "Gracias por ser mi amiga. Va en serio.",
+    "Gracias por ser parte de mi vida. Va en serio.",
     "Eres más querida de lo que te imaginas.",
     "Aquí estoy, aunque no diga nada."
   ],
@@ -89,7 +89,7 @@ window.MENSAJES = {
     },
     {
       titulo: "Un recuerdo",
-      texto: "Cámbialo por uno de ustedes: ese día en que se rieron hasta que les dolió el estómago, y lo que estaban haciendo cuando pasó."
+      texto: "Cámbialo por uno de nosotros: ese día en que nos reímos hasta que nos dolió el estómago, y lo que estábamos haciendo cuando pasó."
     },
     {
       titulo: "Mitad de semana",
@@ -150,12 +150,28 @@ window.MENSAJES = {
   planes: [
     { corto: "Helado",     texto: "Ir por un helado, aunque haga frío." },
     { corto: "Caminar",    texto: "Caminar sin rumbo una hora, sin mapa y sin apuro." },
-    { corto: "Peli mala",  texto: "Ver la peor película que encontremos, a propósito." },
-    { corto: "Cocinar",    texto: "Cocinar algo que ninguno de los dos sepa hacer." },
-    { corto: "Café",       texto: "Café en ese sitio al que siempre decimos que vamos a ir." },
-    { corto: "Fotos",      texto: "Salir a tomar fotos de puras cosas feas." },
-    { corto: "Karaoke",    texto: "Cantar mal, fuerte y sin vergüenza." },
-    { corto: "Mercado",    texto: "Perdernos en un mercado y comprar algo que no necesitamos." }
+    { corto: "Peli mala",  texto: "Ver la peor película que encontremos, a propósito y luego lo comentamos." },
+    { corto: "Videollamada", texto: "Hacer una videollamada y fingir que estamos juntos en el mismo lugar." },
+    { corto: "Cena", texto: "Pedir la misma comida y cenar juntos por videollamada." },
+    { corto: "Película", texto: "Ver una película al mismo tiempo y comentarla como si estuviéramos juntos." },
+    { corto: "Cocinar", texto: "Cocinar la misma receta cada uno desde su ciudad." },
+    { corto: "Fotos", texto: "Mandarnos fotos de lo que estamos haciendo durante el día." },
+    { corto: "Playlist", texto: "Hacer una playlist juntos con canciones que nos recuerden al otro." },
+    { corto: "Preguntas", texto: "Hacernos preguntas random hasta terminar hablando de cualquier cosa." },
+    { corto: "Karaoke", texto: "Cantar mal, reírnos mucho y fingir que ninguno desafina." },
+    { corto: "Juego", texto: "Jugar algo online y competir como si hubiera un premio de verdad." },
+    { corto: "Café", texto: "Tomarnos un café juntos, aunque cada uno esté en una ciudad diferente." },
+    { corto: "Tour", texto: "Enseñarnos nuestra ciudad por videollamada como si fuera una visita guiada." },
+    { corto: "Atardecer", texto: "Buscar un lugar bonito y ver el atardecer juntos por videollamada." },
+    { corto: "Carta", texto: "Escribirnos una carta para leerla cuando finalmente nos volvamos a ver." },
+    { corto: "Sorpresa", texto: "Mandarnos una pequeña sorpresa sin decir absolutamente nada." },
+    { corto: "Cuenta regresiva", texto: "Hacer la cuenta regresiva para el día en que volvamos a vernos." },
+    { corto: "Viaje", texto: "Planear nuestro próximo viaje aunque todavía falte bastante." },
+    { corto: "Reencuentro", texto: "Imaginar qué vamos a hacer apenas nos volvamos a ver." },
+    { corto: "Dormir", texto: "Quedarnos en llamada hasta que uno de los dos se quede dormido." },
+    { corto: "Buenos días", texto: "Mandarnos un mensaje apenas despertamos, como si estuviéramos cerca." },
+    { corto: "Buenas noches", texto: "Desearnos buenas noches aunque nos separen varios kilómetros." },
+    { corto: "Cuenta regresiva", texto: "Contar los días que faltan para poder hacer todos estos planes juntos." }
   ],
 
   /* Encabezado del mensaje que se manda por WhatsApp */
