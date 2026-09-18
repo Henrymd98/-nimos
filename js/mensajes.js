@@ -148,12 +148,8 @@ window.MENSAJES = {
      "corto" va en la ruleta, "texto" es lo que se manda.
      ============================================================ */
   planes: [
-    { corto: "Helado",     texto: "Ir por un helado, aunque haga frío." },
-    { corto: "Caminar",    texto: "Caminar sin rumbo una hora, sin mapa y sin apuro." },
     { corto: "Peli mala",  texto: "Ver la peor película que encontremos, a propósito y luego lo comentamos." },
     { corto: "Videollamada", texto: "Hacer una videollamada y fingir que estamos juntos en el mismo lugar." },
-    { corto: "Cena", texto: "Pedir la misma comida y cenar juntos por videollamada." },
-    { corto: "Película", texto: "Ver una película al mismo tiempo y comentarla como si estuviéramos juntos." },
     { corto: "Cocinar", texto: "Cocinar la misma receta cada uno desde su ciudad." },
     { corto: "Fotos", texto: "Mandarnos fotos de lo que estamos haciendo durante el día." },
     { corto: "Playlist", texto: "Hacer una playlist juntos con canciones que nos recuerden al otro." },
@@ -161,17 +157,8 @@ window.MENSAJES = {
     { corto: "Karaoke", texto: "Cantar mal, reírnos mucho y fingir que ninguno desafina." },
     { corto: "Juego", texto: "Jugar algo online y competir como si hubiera un premio de verdad." },
     { corto: "Café", texto: "Tomarnos un café juntos, aunque cada uno esté en una ciudad diferente." },
-    { corto: "Tour", texto: "Enseñarnos nuestra ciudad por videollamada como si fuera una visita guiada." },
-    { corto: "Atardecer", texto: "Buscar un lugar bonito y ver el atardecer juntos por videollamada." },
-    { corto: "Carta", texto: "Escribirnos una carta para leerla cuando finalmente nos volvamos a ver." },
-    { corto: "Sorpresa", texto: "Mandarnos una pequeña sorpresa sin decir absolutamente nada." },
-    { corto: "Cuenta regresiva", texto: "Hacer la cuenta regresiva para el día en que volvamos a vernos." },
     { corto: "Viaje", texto: "Planear nuestro próximo viaje aunque todavía falte bastante." },
     { corto: "Reencuentro", texto: "Imaginar qué vamos a hacer apenas nos volvamos a ver." },
-    { corto: "Dormir", texto: "Quedarnos en llamada hasta que uno de los dos se quede dormido." },
-    { corto: "Buenos días", texto: "Mandarnos un mensaje apenas despertamos, como si estuviéramos cerca." },
-    { corto: "Buenas noches", texto: "Desearnos buenas noches aunque nos separen varios kilómetros." },
-    { corto: "Cuenta regresiva", texto: "Contar los días que faltan para poder hacer todos estos planes juntos." }
   ],
 
   /* Encabezado del mensaje que se manda por WhatsApp */
