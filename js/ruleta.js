@@ -8,14 +8,31 @@
   const lienzo = $("#ruleta");
   const ctx = lienzo.getContext("2d");
   const LADO = 300;
-  const TONOS = ["coral", "lavanda", "cielo", "menta", "durazno", "miel", "coral", "lavanda"];
+  const TONOS = ["coral", "lavanda", "cielo", "menta", "durazno", "miel"];
 
   let anguloActual = 0;
   let girando = false;
   let planElegido = null;
 
+  /* Corta el texto si no entra en el gajo */
+  function recortar(texto, ancho) {
+    if (ctx.measureText(texto).width <= ancho) return texto;
+    let t = texto;
+    while (t.length > 1 && ctx.measureText(t + "…").width > ancho) t = t.slice(0, -1);
+    return t.trim() + "…";
+  }
+
+  /* Reparte los colores sin que dos vecinos queden iguales */
+  function tonoDe(i, total) {
+    let indice = i % TONOS.length;
+    if (i === total - 1 && indice === 0) indice = 1;      // el último pegaba con el primero
+    return TONOS[indice];
+  }
+
   function dibujar() {
-    const planes = window.MENSAJES.planes;
+    const planes = window.MENSAJES.planes || [];
+    if (!planes.length) return;
+
     const d = window.devicePixelRatio || 1;
     lienzo.width = LADO * d;
     lienzo.height = LADO * d;
@@ -23,6 +40,13 @@
 
     const R = LADO / 2;
     const paso = (Math.PI * 2) / planes.length;
+
+    /* Con muchos planes los gajos se afinan: la letra baja de tamaño y,
+       si ya no se puede leer nada, se dibujan solo los colores. */
+    const fuente = Math.max(8, Math.min(15, 16 - planes.length * 0.28));
+    const grosorGajo = R * 0.55 * paso;                  // ancho del gajo a media altura
+    const conTexto = planes.length <= 26 && grosorGajo >= fuente * 0.95;
+    const anchoUtil = R - 22 - 30;                       // del borde al centro
 
     ctx.clearRect(0, 0, LADO, LADO);
     ctx.translate(R, R);
@@ -35,26 +59,29 @@
       ctx.moveTo(0, 0);
       ctx.arc(0, 0, R - 4, desde, desde + paso);
       ctx.closePath();
-      ctx.fillStyle = color(TONOS[i % TONOS.length]);
+      ctx.fillStyle = color(tonoDe(i, planes.length));
       ctx.fill();
       ctx.strokeStyle = "rgba(255,255,255,.55)";
-      ctx.lineWidth = 2;
+      ctx.lineWidth = planes.length > 16 ? 1 : 2;
       ctx.stroke();
+
+      if (!conTexto) return;
 
       const bisectriz = desde + paso / 2;
       ctx.save();
       ctx.rotate(bisectriz);
       ctx.textBaseline = "middle";
       ctx.fillStyle = "#fff";
-      ctx.font = "700 15px Quicksand, system-ui, sans-serif";
+      ctx.font = `700 ${fuente}px Quicksand, system-ui, sans-serif`;
+      const etiqueta = recortar(plan.corto, anchoUtil);
       if (Math.cos(bisectriz) < 0) {
         // en la mitad izquierda el texto saldría de cabeza: se voltea
         ctx.rotate(Math.PI);
         ctx.textAlign = "left";
-        ctx.fillText(plan.corto, -(R - 20), 0);
+        ctx.fillText(etiqueta, -(R - 22), 0);
       } else {
         ctx.textAlign = "right";
-        ctx.fillText(plan.corto, R - 20, 0);
+        ctx.fillText(etiqueta, R - 22, 0);
       }
       ctx.restore();
     });
@@ -77,7 +104,8 @@
 
   function girar() {
     if (girando) return;
-    const planes = window.MENSAJES.planes;
+    const planes = window.MENSAJES.planes || [];
+    if (!planes.length) return;
     girando = true;
     planElegido = null;
     $("#resultado-plan").hidden = true;
