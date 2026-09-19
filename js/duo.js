@@ -6,7 +6,7 @@
    ============================================================ */
 (function () {
   "use strict";
-  const { $, alAzar, revolver, Sonido, vibrar, mostrar, alEntrar, pintarAcento } = window.T;
+  const { $, alAzar, letra, revolver, Sonido, vibrar, mostrar, alEntrar, pintarAcento } = window.T;
 
   const POR_RONDA = 8;                 // 4 preguntas para cada uno
   const duo = { nombres: ["Cecy", "Yo"], cat: null, ronda: [], i: 0,
@@ -56,14 +56,13 @@
 
     const cont = $("#duo-opciones");
     cont.innerHTML = "";
-    const letras = ["A", "B", "C", "D"];
 
     revolver(q.o.map((texto, i) => ({ texto, correcta: i === q.r })))
       .forEach((op, idx) => {
         const b = document.createElement("button");
         b.className = "opcion";
         b.dataset.correcta = op.correcta ? "si" : "no";
-        b.innerHTML = `<span class="letra" aria-hidden="true">${letras[idx]}</span><span>${op.texto}</span>`;
+        b.innerHTML = `<span class="letra" aria-hidden="true">${letra(idx)}</span><span>${op.texto}</span>`;
         b.addEventListener("click", () => responder(b, op.correcta, q));
         cont.appendChild(b);
       });

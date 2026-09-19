@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   "use strict";
-  const { $, alAzar, revolver, almacen, Sonido, vibrar, mostrar, alEntrar,
+  const { $, alAzar, letra, revolver, almacen, Sonido, vibrar, mostrar, alEntrar,
           color, transparente, pintarAcento } = window.T;
 
   const POR_RONDA = 8;
@@ -26,7 +26,7 @@
            <strong>${cat.nombre}</strong>
            <span>${cat.descripcion}</span>
          </span>
-         <span class="record">${records[cat.id] ? "Mejor " + records[cat.id] + "/8" : ""}</span>`;
+         <span class="record">${records[cat.id] ? "Mejor " + records[cat.id] + "/" + Math.min(POR_RONDA, cat.preguntas.length) : ""}</span>`;
       boton.addEventListener("click", () => alElegir(cat));
       contenedor.appendChild(boton);
     });
@@ -67,14 +67,13 @@
 
     const cont = $("#opciones");
     cont.innerHTML = "";
-    const letras = ["A", "B", "C", "D"];
 
     revolver(q.o.map((texto, i) => ({ texto, correcta: i === q.r })))
       .forEach((op, idx) => {
         const b = document.createElement("button");
         b.className = "opcion";
         b.dataset.correcta = op.correcta ? "si" : "no";
-        b.innerHTML = `<span class="letra" aria-hidden="true">${letras[idx]}</span><span>${op.texto}</span>`;
+        b.innerHTML = `<span class="letra" aria-hidden="true">${letra(idx)}</span><span>${op.texto}</span>`;
         b.addEventListener("click", () => responder(b, op.correcta, q));
         cont.appendChild(b);
       });
@@ -129,10 +128,14 @@
     const esRecord = !records[juego.cat.id] || juego.aciertos > records[juego.cat.id];
     if (esRecord) { records[juego.cat.id] = juego.aciertos; almacen.escribir("records", records); }
 
-    const banda = window.MENSAJES.final.find((b) => juego.aciertos >= b.min) ||
+    // las bandas de mensajes están escritas sobre 8; si la ronda fue más
+    // corta se compara con la nota equivalente
+    const equivalente = Math.round((juego.aciertos / total) * POR_RONDA);
+    const banda = window.MENSAJES.final.find((b) => equivalente >= b.min) ||
                   window.MENSAJES.final[window.MENSAJES.final.length - 1];
 
     $("#final-aciertos").textContent = juego.aciertos;
+    $("#final-total").textContent = total;
     $("#medidor").style.setProperty("--pct", Math.round((juego.aciertos / total) * 100));
     $("#final-titulo").textContent = banda.titulo;
     $("#final-texto").textContent = banda.texto;

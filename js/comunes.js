@@ -11,6 +11,9 @@ window.T = (function () {
 
   const alAzar = (lista) => lista[(Math.random() * lista.length) | 0];
 
+  /* A, B, C, D... según cuántas opciones tenga la pregunta */
+  const letra = (indice) => String.fromCharCode(65 + indice);
+
   function revolver(lista) {
     const copia = lista.slice();
     for (let i = copia.length - 1; i > 0; i--) {
@@ -137,7 +140,7 @@ window.T = (function () {
   const quieto = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   return {
-    $, $$, alAzar, revolver, otroDistinto, almacen, hoyISO, diasEntre,
+    $, $$, alAzar, letra, revolver, otroDistinto, almacen, hoyISO, diasEntre,
     Sonido, vibrar, mostrar, alEntrar, color, transparente, pintarAcento, quieto
   };
 })();
