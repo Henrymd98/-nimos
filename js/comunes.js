@@ -23,6 +23,16 @@ window.T = (function () {
     return copia;
   }
 
+  /* Las opciones se barajan, pero "todas las anteriores" y "ninguna"
+     no tendrían sentido en medio de la lista: esas se quedan al final. */
+  const VAN_AL_FINAL = /^\s*(todas|todos|ninguna|ninguno)\b/i;
+
+  function revolverOpciones(opciones) {
+    const sueltas = opciones.filter((o) => !VAN_AL_FINAL.test(o.texto));
+    const fijas   = opciones.filter((o) =>  VAN_AL_FINAL.test(o.texto));
+    return revolver(sueltas).concat(fijas);
+  }
+
   /* Uno distinto al anterior, para que no repita dos veces seguidas */
   function otroDistinto(lista, anterior) {
     if (lista.length < 2) return lista[0];
@@ -140,7 +150,7 @@ window.T = (function () {
   const quieto = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   return {
-    $, $$, alAzar, letra, revolver, otroDistinto, almacen, hoyISO, diasEntre,
+    $, $$, alAzar, letra, revolver, revolverOpciones, otroDistinto, almacen, hoyISO, diasEntre,
     Sonido, vibrar, mostrar, alEntrar, color, transparente, pintarAcento, quieto
   };
 })();

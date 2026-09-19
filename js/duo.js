@@ -6,7 +6,7 @@
    ============================================================ */
 (function () {
   "use strict";
-  const { $, alAzar, letra, revolver, Sonido, vibrar, mostrar, alEntrar, pintarAcento } = window.T;
+  const { $, alAzar, letra, revolver, revolverOpciones, Sonido, vibrar, mostrar, alEntrar, pintarAcento } = window.T;
 
   const POR_RONDA = 8;                 // 4 preguntas para cada uno
   const duo = { nombres: ["Cecy", "Yo"], cat: null, ronda: [], i: 0,
@@ -57,7 +57,7 @@
     const cont = $("#duo-opciones");
     cont.innerHTML = "";
 
-    revolver(q.o.map((texto, i) => ({ texto, correcta: i === q.r })))
+    revolverOpciones(q.o.map((texto, i) => ({ texto, correcta: i === q.r })))
       .forEach((op, idx) => {
         const b = document.createElement("button");
         b.className = "opcion";

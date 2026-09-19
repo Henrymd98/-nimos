@@ -7,7 +7,7 @@ Tiene cinco cosas adentro:
 
 | | |
 |---|---|
-| 🎯 **Trivia** | 54 preguntas en seis categorías. Ocho al azar por ronda, sin cronómetro. |
+| 🎯 **Trivia** | Cinco categorías. Ocho preguntas al azar por ronda, sin cronómetro. |
 | 👯 **Dos jugadores** | Un celular, dos personas, turnos alternados y marcador al final. |
 | 📅 **Siete días** | Un mensaje nuevo cada día, que se desbloquea solo. |
 | 💌 **Cartas** | Sobres con etiqueta: "ábreme cuando no puedas dormir", "cuando estés harta de todo". |
@@ -58,15 +58,14 @@ primeros que hay que cambiar.
 
 ### Fotos
 
-La categoría **¿Dónde estábamos?** muestra una imagen arriba de cada pregunta.
-Copia tus fotos en la carpeta `fotos/` y apunta a ellas:
+Cualquier pregunta puede llevar una imagen arriba. Copia el archivo en una
+carpeta del repositorio y agrégale la línea:
 
 ```js
 foto: "fotos/playa2023.jpg"
 ```
 
-Si el archivo no existe todavía, la app no muestra nada y la pregunta funciona
-igual. Hay más detalle en `fotos/LEEME.md`.
+Si el archivo no existe, la app no muestra nada y la pregunta funciona igual.
 
 ## Publicarla
 
@@ -104,7 +103,6 @@ js/ruleta.js        la ruleta de planes
 js/voz.js           leer en voz alta
 js/confeti.js       el confeti
 js/app.js           navegación y ventanas
-fotos/              las fotos de la categoría de recuerdos
 ```
 
 Sin dependencias, sin build, sin npm. El navegador lee los archivos tal como

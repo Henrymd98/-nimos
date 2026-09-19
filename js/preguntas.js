@@ -225,7 +225,7 @@ window.CATEGORIAS = [
         dato: "La gestación de una elefanta dura aproximadamente 22 meses."
       },
       {
-        p: "¿Qué animal es famoso por ""hacerse el muerto"" cuando se siente amenazado?",
+        p: "¿Qué animal es famoso por “hacerse el muerto” cuando se siente amenazado?",
         o: ["Zorrillo", "Mapache", "Zarigueya", "Erizo", "Perro"],
         r: 2,
         dato: "Puede entrar involuntariamente en un estado parecido a la inmovilidad o tanatosis, aparentando estar muerta para disuadir a un depredador."
@@ -445,70 +445,6 @@ window.CATEGORIAS = [
         o: ["Adele", "Taylor Swift", "Lana del Rey", "Katy Perry"],
         r: 1,
         dato: "Lo nombró por su año de nacimiento, y años después lo volvió a grabar completo."
-      }
-    ]
-  },
-
-  /* ----------------------------------------------------------
-     CATEGORÍA CON FOTOS 📸
-     Cada pregunta puede llevar una foto arriba. Pon tus imágenes
-     en la carpeta "fotos/" y escribe el nombre del archivo tal
-     como quedó, con su extensión:
-
-         foto: "fotos/playa2023.jpg"
-
-     Si el archivo no existe o todavía no lo subes, la app
-     simplemente no muestra nada y la pregunta funciona igual.
-     Las que vienen son de relleno para que veas cómo se ve.
-     ---------------------------------------------------------- */
-  {
-    id: "recuerdos",
-    nombre: "¿Dónde estábamos?",
-    emoji: "📸",
-    tono: "miel",
-    descripcion: "Fotos de ustedes (ponlas tú)",
-    preguntas: [
-      {
-        foto: "fotos/recuerdo-1.svg",
-        p: "¿Dónde estábamos en esta foto?",
-        o: ["En la playa", "En el centro", "En casa de mi mamá", "En el parque"],
-        r: 0,
-        dato: "Cambia la foto y las opciones en js/preguntas.js 📸"
-      },
-      {
-        foto: "fotos/recuerdo-2.svg",
-        p: "¿Qué estábamos celebrando acá?",
-        o: ["Un cumpleaños", "Nada, un martes cualquiera", "Un ascenso", "Una despedida"],
-        r: 1,
-        dato: "Los mejores días casi nunca son los planeados."
-      },
-      {
-        foto: "fotos/recuerdo-3.svg",
-        p: "¿Quién tomó esta foto?",
-        o: ["Yo", "Tú", "Un desconocido", "El temporizador del celular"],
-        r: 2,
-        dato: "Y salió mejor de lo que esperábamos."
-      },
-      {
-        foto: "fotos/recuerdo-4.svg",
-        p: "¿En qué año fue esto?",
-        o: ["2021", "2022", "2023", "2024"],
-        r: 2,
-        dato: "Pon el año que de verdad fue."
-      },
-      {
-        foto: "fotos/recuerdo-5.svg",
-        p: "¿Qué pasó cinco minutos después de esta foto?",
-        o: ["Nos perdimos", "Empezó a llover", "Nos echaron", "Nos dio hambre"],
-        r: 1,
-        dato: "La historia detrás de la foto es la mitad de la gracia."
-      },
-      {
-        foto: "fotos/recuerdo-6.svg",
-        p: "¿De quién fue la idea de ir ahí?",
-        o: ["Mía", "Tuya", "De los dos", "De nadie, pasó y ya"],
-        r: 1,
-        dato: "Casi siempre es tuya."
       }
     ]
   }

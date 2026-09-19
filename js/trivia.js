@@ -3,7 +3,7 @@
    ============================================================ */
 (function () {
   "use strict";
-  const { $, alAzar, letra, revolver, almacen, Sonido, vibrar, mostrar, alEntrar,
+  const { $, alAzar, letra, revolver, revolverOpciones, almacen, Sonido, vibrar, mostrar, alEntrar,
           color, transparente, pintarAcento } = window.T;
 
   const POR_RONDA = 8;
@@ -68,7 +68,7 @@
     const cont = $("#opciones");
     cont.innerHTML = "";
 
-    revolver(q.o.map((texto, i) => ({ texto, correcta: i === q.r })))
+    revolverOpciones(q.o.map((texto, i) => ({ texto, correcta: i === q.r })))
       .forEach((op, idx) => {
         const b = document.createElement("button");
         b.className = "opcion";
