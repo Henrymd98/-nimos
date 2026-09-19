@@ -28,59 +28,113 @@ window.CATEGORIAS = [
      ustedes dos sabrían.
      ---------------------------------------------------------- */
   {
-    id: "cecy",
-    nombre: "Cosas de Cecy",
-    emoji: "🌷",
+    id: "henry",
+    nombre: "Qué tanto sabes de Henry",
+    emoji: "🐻",
     tono: "coral",
-    descripcion: "Preguntas sobre ella (edítalas tú)",
+    descripcion: "Preguntas sobre Henry",
     preguntas: [
       {
-        p: "¿Qué es lo primero que hace Cecy al despertar?",
-        o: ["Revisar el celular", "Estirarse un rato más", "Poner música", "Ir directo por café"],
+        p: "¿Qué es lo primero que hace Henry al despertar?",
+        o: ["Revisar el celular", "Estirarse un rato más", "Poner música", "Posponer la alarma 5 min. más", "Ir directo por café"],
         r: 3,
-        dato: "Cambia esta pregunta en js/preguntas.js por la respuesta real 💛"
+        dato: "Porqué no dormir un poquito más"
       },
       {
-        p: "¿Cuál es el plan perfecto de Cecy para un domingo?",
-        o: ["Dormir hasta tarde", "Salir a caminar", "Maratón de series", "Cocinar algo rico"],
-        r: 2,
-        dato: "Reemplaza las opciones con planes que de verdad le gusten."
-      },
-      {
-        p: "Si Cecy pudiera viajar mañana, ¿a dónde iría?",
-        o: ["A la playa", "A la montaña", "A Japón", "A un pueblito tranquilo"],
+        p: "¿Cuál es el plan perfecto de Henry para un domingo?",
+        o: ["Dormir hasta tarde", "Salir a caminar", "Maratón de series", "Jugar con sus perros", "Cocinar algo rico"],
         r: 0,
-        dato: "Pon los lugares de los que ella siempre habla."
+        dato: "Recargar energías es lo esencial."
       },
       {
-        p: "¿Qué canción se sabe Cecy de memoria?",
+        p: "Si Henry pudiera viajar mañana, ¿a dónde iría?",
+        o: ["A la playa", "A la montaña", "A China", "A un pueblito tranquilo", "A Europa"],
+        r: 0,
+        dato: "Paz y tranquilidad, su elección favorita."
+      },
+      {
+        p: "¿Qué canción se sabe Henry de memoria?",
         o: ["Una de Shakira", "Una de Taylor Swift", "Una cumbia", "Una de Bad Bunny"],
-        r: 1,
-        dato: "Aquí va esa canción que canta sin querer."
+        r: 2,
+        dato: "Siempre va a conciertos de ese género."
       },
       {
-        p: "¿Cuál es el comfort food de Cecy?",
-        o: ["Helado", "Pizza", "Sopa casera", "Chocolate"],
-        r: 3,
-        dato: "Lo que pide cuando el día estuvo pesado."
+        p: "¿Cuál es el cantante favorito de Henry?",
+        o: ["Gilberto Santa Rosa", "Agua Marina", "Grupo 5", "José José", "Michael Jackson"],
+        r: 2,
+        dato: "Siempre la tiene en repeat."
+      },
+       {
+        p: "¿Cuál es el comfort food de Henry?",
+        o: ["Helado", "Pizza", "Sopa casera", "Chocolate", "Ceviche"],
+        r: 4,
+        dato: "Lo que pide y le encanta."
       },
       {
-        p: "¿Qué frase dice Cecy todo el tiempo?",
-        o: ["“Ya fue”", "“Qué chistoso”", "“No puede ser”", "“Te cuento algo”"],
+        p: "¿Qué frase dice Henry todo el tiempo?",
+        o: ["“Ya fue”", "“Qué chistoso”", "“No puede ser”", "“Tamare”"],
         r: 3,
         dato: "Su muletilla favorita. Esa que ya le copiaste."
       },
       {
-        p: "¿Cómo se conocieron ustedes dos?",
-        o: ["En el colegio", "En el trabajo", "Por amigos en común", "En la universidad"],
-        r: 2,
+        p: "¿Cómo nos conocimos (si te olvidaste te ahorco)?",
+        o: ["En el colegio", "En el trabajo", "Por amigos en común", "En una fiesta", "Tradiciones"],
+        r: 4,
         dato: "El día que empezó todo esto."
       },
       {
-        p: "¿Qué superpoder le queda mejor a Cecy?",
-        o: ["Teletransportarse", "Leer la mente", "Parar el tiempo", "Curar a la gente"],
-        r: 3,
-        dato: "Pista: ya lo tiene, pero con abrazos."
+        p: "¿Cuál es la cerveza favorita de Henry?",
+        o: ["Pilsen", "Cristal", "Cusqueña de Trigo", "Cusqueña de Light", "San Juan"],
+        r: 2,
+        dato: "Varias veces la hemos pedido"
+      },
+      {
+        p: "¿Cuál es mi mayor defecto?",
+        o: ["Soy impaciente", "Sobrepienso demasiado", "Soy terco", "Procrastino", "Me preocupo demasiado"],
+        r: 2,
+        dato: "Bueno, pero no me tienen paciencia"
+      }, 
+      {
+        p: "¿Cuál es el género favorito de música de Henry?",
+        o: ["Reggaetón", "Salsa", "Cumbia", "Pop", "Huayno"],
+        r: 1,
+        dato: "Pista: Nunca he ido a un concierto de ese género"
+      },    
+      {
+        p: "Qué regalo me gustaría más recibir",
+        o: ["Algo caro", "Algo especial para mí", "Dinero", "Una experiencia"],
+        r: 1,
+        dato: "Lo maravilloso de la vida es ser querido"
+      },
+      {
+        p: "¿Qué crees que fue lo primero que me impresionó todo?",
+        o: ["Me caíste bien inmediatamente", "Pensé que eras seria", "Pensé que eras divertida", "No sabía qué pensar de ti", "De dónde salió?"],
+        r: 0,
+        dato: "La vida nos trae sorpresas"
+      }, 
+      {
+        p: "¿Qué es o más probable que me acuerde de alguien?",
+        o: ["Fechas", "Conversaciones específicas", "Lugar en donde lo conocí", "Ninguna", "Todas"],
+        r: 4,
+        dato: "La mente a veces es poderosa"
+      }, 
+      {
+        p: "¿Qué cosa sabes que me hace feliz fácilmente?",
+        o: ["Comer algo rico", "Siempre dormir", "Conocer un lugar nuevo", "Recibir detalles", "Todas las anteriores"],
+        r: 2,
+        dato: "Vive la vida y no dejes que la vida te viva tilín"
+      }, 
+      {
+        p: "¿Qué cosa me molesta más?",
+        o: ["Que me dejen visto", "Que me mientan", "Que no cumplan su palabra", "Cambio de planes a último minuto"],
+        r: 1,
+        dato: "Tiene la lengua pegada al paladar con una membrana, así que no la puede asomar."
+      }, 
+      {
+        p: "¿Qué superpoder le gustaría tener a Henry?",
+        o: ["Teletransportarse", "Controlar el tiempo", "Leer la mente", "Parar el tiempo", "Curar a la gente"],
+        r: 1,
+        dato: "Pista: desaparecer del trabajo."
       }
     ]
   },
@@ -146,6 +200,36 @@ window.CATEGORIAS = [
         r: 2,
         dato: "Hasta 30 metros. Su corazón pesa más que una persona adulta."
       },
+      {
+        p: "¿Cuál es el animal terrestre más rápido del mundo?",
+        o: ["León", "Guepardo", "Antílope", "Avestruz"],
+        r: 1,
+        dato: "El guepardo puede alcanzar aproximadamente 100–120 km/h en carreras cortas."
+      },
+      {
+        p: "¿Cuál de estos animales no puede saltar?",
+        o: ["Elefante", "Rinoceronte", "Hipopótamo", "Todas las anteriores"],
+        r: 0,
+        dato: "Los elefantes son conocidos por ser incapaces de realizar un salto en el que las cuatro patas se separen del suelo simultáneamente."
+      }, 
+      {
+        p: "¿Cuál de estos animales puede regenerar partes importantes de su cuerpo?",
+        o: ["Ajolote", "Águila", "Gorila", "Jirafa"],
+        r: 0,
+        dato: "El ajolote puede regenerar extremidades y también reparar tejidos de órganos como el corazón y partes del sistema nervioso."
+      },
+      {
+        p: "¿Qué animal tiene uno de los períodos de gestación más largos entre los mamíferos terrestres?",
+        o: ["Jirafa", "Elefante", "Rinoceronte", "Yegua", "Vaca"],
+        r: 1,
+        dato: "La gestación de una elefanta dura aproximadamente 22 meses."
+      },
+      {
+        p: "¿Qué animal es famoso por ""hacerse el muerto"" cuando se siente amenazado?",
+        o: ["Zorrillo", "Mapache", "Zarigueya", "Erizo", "Perro"],
+        r: 2,
+        dato: "Puede entrar involuntariamente en un estado parecido a la inmovilidad o tanatosis, aparentando estar muerta para disuadir a un depredador."
+      },  
       {
         p: "¿Cuánto puede vivir una tortuga gigante?",
         o: ["30 años", "50 años", "80 años", "Más de 100 años"],
